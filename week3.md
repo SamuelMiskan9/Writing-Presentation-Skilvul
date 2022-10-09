@@ -134,4 +134,71 @@ const fruits = ["Banana", "Orange", "Apple"];
 fruits[6] = "Lemon";  // Membuat array undifined didalam fruits
 ```
 
+### OBJECT
+Objek  adalah sebuah variabel yang menyimpan nilai (properti) dan fungsi (method). contoh object didalam javascript itu seperti:
+```javascript
+// Terdapat variable car dengan value Bmw
+let car = "Bmw";
 
+// Terdapat variable car dengan berbagai object didalamnya, seperti type, model dan warna
+const car = {type:"Fiat", model:"500", color:"white"};
+```
+**Mendefiniskan Objek**
+kita bisa define dan membuat sebuah object menggunakan objek literal contohnya:
+```javascript
+const person = {firstName:"Samuel", lastName:"Miskan", age:20, eyeColor:"Brown"};
+
+// atau kita bisa sejajarkan object didalam variable person nya sebagai berikut
+const person = {
+  firstName: "Samuel",
+  lastName: "Miskan",
+  age: 21,
+  eyeColor: "Brown"
+};
+```
+**Objek Properti**
+terdapat sebuah properti ketika kita membuat suatu objek yaitu:
+```javascript
+// Contoh object sebagai berikut, objek tersebut memiliki properti yaitu
+// firstName Samuel
+// lastName Miskan
+// age 21
+// eyeColor Brown
+const person = {
+  firstName: "Samuel",
+  lastName: "Miskan",
+  age: 21,
+  eyeColor: "Brown"
+};
+```
+**Mengakses Properti Objek**
+Kita dapat mengakses properti dari sebuah object dengan cara:
+```javascript
+objectName.propertyName
+// atau
+objectName["propertyName"]
+
+// contohnya
+const person = {
+  firstName: "Samuel",
+  lastName: "Miskan",
+  age: 21,
+  eyeColor: "Brown"
+};
+person.lastName;
+person["lastName"];
+```
+**Object Method**
+*Objek* juga memiliki sebuah method, Metode adalah tindakan yang dapat dilakukan pada objek. Metode disimpan dalam properti sebagai definisi fungsi. contohnya:
+```javascript
+// Metode adalah fungsi yang disimpan sebagai properti.
+
+const person = {
+  firstName: "Samuel",
+  lastName : "Miskan",
+  id       : 4411,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+```
