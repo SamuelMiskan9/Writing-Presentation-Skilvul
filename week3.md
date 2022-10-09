@@ -1,8 +1,8 @@
-# WRITING AND PRESENTATION WEEK 3
-## SAMUEL MISKAN HANOCK - FRONT END DEVELOPMENT
+#WRITING AND PRESENTATION WEEK 3
+##SAMUEL MISKAN HANOCK - FRONT END DEVELOPMENT
 
 
-### ARRAY
+###ARRAY
 *Array* adalah variabel yang berisi banyak nilai (item). Sintaks array pada JavaScript mirip dengan variabel biasa. Array pada JavaScript digunakan untuk menyimpan daftar item (nama, judul, dan lain sebagainya). Array pada JavaScript adalah variabel yang dapat berisi lebih dari satu objek. array pada javascript memiliki beberapa ciri yaitu:
 - Array pada Javascript adalah variabel yang berisi banyak nilai (item).
 - Sintaks array pada JavaScript mirip dengan variabel biasa.
@@ -55,10 +55,10 @@ document.getElementById("demo").innerHTML = cars;
 **Array adalah object**
 *Array* adalah jenis objek khusus. Operator typeof dalam JavaScript mengembalikan "objek" untuk array. Tapi, array JavaScript paling baik digambarkan sebagai array. Array menggunakan angka untuk mengakses "elemen" -nya. contoh: 
 ```javascript
-//array
+// array
 const person = ["John", "Doe", 46];
 
-//object
+// object
 const person = {firstName:"John", lastName:"Doe", age:46};
 ```
 
@@ -70,4 +70,63 @@ myArray[1] = myFunction;
 myArray[2] = myCars;
 ```
 
+**Array properti dan method**
+Dengan array kita bisa mem-build sebuah property maupun method contohnya:
+```javascript
+cars.length   // Returns the number of elements
+cars.sort()   // Sorts the array 
+```
+**Array length **
+Kita dapat menghitung banyak array dengan menggunakan fungsi length contohnya:
+```javascript
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let length = fruits.length;
+```
+
+**Mengakses array pertama dan terakhir dalam suatu element**
+```javascript
+// Mengakses first array
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let fruit = fruits[0];
+
+// Mengakses last array
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let fruit = fruits[fruits.length - 1];
+```
+
+**Menggunakan looping dengan array**
+kita dapat menggunakan loop didalam suatu array, yaitu dengan cara menggunakan loop **for loop** , contohnya:
+```javascript
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let fLen = fruits.length;
+
+let text = "<ul>";
+for (let i = 0; i < fLen; i++) {
+  text += "<li>" + fruits[i] + "</li>";
+}
+text += "</ul>";
+```
+**array For Each**
+merupakan method array di JavaScript yang mengeksekusi fungsi yang disediakan sekali untuk setiap elemen array. Method ini mengembalikan nilai undefined dan tidak mengubah array asli, tapi jika dibutuhkan kita bisa memodifikasi array sumber di dalam badan fungsi.
+```javascript
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+let text = "<ul>";
+fruits.forEach(myFunction);
+text += "</ul>";
+
+function myFunction(value) {
+  text += "<li>" + value + "</li>";
+} 
+```
+**Menambah array didalam element**
+Kita bisa menambah value atau array baru di dalam suatau element menggunakan push() method, contohnya:
+```javascript
+ const fruits = ["Banana", "Orange", "Apple"];
+fruits.push("Lemon");  // Menambah array baru yaitu (Lemon)
+
+// Juga bisa menambahkan array menggunakan length = "Lemon"
+ const fruits = ["Banana", "Orange", "Apple"];
+fruits[fruits.length] = "Lemon";  // Adds "Lemon" to fruits 
+```
 
