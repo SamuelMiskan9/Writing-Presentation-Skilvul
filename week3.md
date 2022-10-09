@@ -19,7 +19,7 @@ let car1 = "Saab";
 let car2 = "Volvo";
 let car3 = "BMW"; 
 ```
-Namun, bagaimana jika Anda ingin menelusuri mobil dan menemukan yang spesifik? Dan bagaimana jika Anda tidak memiliki 3 mobil, tetapi 300? Solusinya adalah array! Array dapat menampung banyak nilai di bawah satu nama, dan Anda dapat mengakses nilai dengan merujuk ke nomor indeks.
+Namun, bagaimana jika Kita ingin menelusuri mobil dan menemukan yang spesifik? Dan bagaimana jika kita tidak memiliki 3 mobil, tetapi 300? Solusinya adalah array! Array dapat menampung banyak nilai di bawah satu nama, dan kita dapat mengakses nilai dengan merujuk ke nomor indeks.
 
 **Bagaimana membuat array**
 Menggunakan literal array adalah cara termudah untuk membuat Array JavaScript.
