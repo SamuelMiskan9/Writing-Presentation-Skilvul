@@ -128,5 +128,10 @@ fruits.push("Lemon");  // Menambah array baru yaitu (Lemon)
 // Juga bisa menambahkan array menggunakan length = "Lemon"
  const fruits = ["Banana", "Orange", "Apple"];
 fruits[fruits.length] = "Lemon";  // Menambah "Lemon" kedalam fruits
+
+// Menambahkan array dengan index yang tinggi akan terjadi Undifined
+const fruits = ["Banana", "Orange", "Apple"];
+fruits[6] = "Lemon";  // Membuat array undifined didalam fruits
 ```
+
 
