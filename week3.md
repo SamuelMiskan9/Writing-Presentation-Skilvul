@@ -127,6 +127,6 @@ fruits.push("Lemon");  // Menambah array baru yaitu (Lemon)
 
 // Juga bisa menambahkan array menggunakan length = "Lemon"
  const fruits = ["Banana", "Orange", "Apple"];
-fruits[fruits.length] = "Lemon";  // Adds "Lemon" to fruits 
+fruits[fruits.length] = "Lemon";  // Menambah "Lemon" kedalam fruits
 ```
 
