@@ -1,8 +1,8 @@
-#WRITING AND PRESENTATION WEEK 3
-##SAMUEL MISKAN HANOCK - FRONT END DEVELOPMENT
+# WRITING AND PRESENTATION WEEK 3
+## SAMUEL MISKAN HANOCK - FRONT END DEVELOPMENT
 
 
-###ARRAY
+### ARRAY
 *Array* adalah variabel yang berisi banyak nilai (item). Sintaks array pada JavaScript mirip dengan variabel biasa. Array pada JavaScript digunakan untuk menyimpan daftar item (nama, judul, dan lain sebagainya). Array pada JavaScript adalah variabel yang dapat berisi lebih dari satu objek. array pada javascript memiliki beberapa ciri yaitu:
 - Array pada Javascript adalah variabel yang berisi banyak nilai (item).
 - Sintaks array pada JavaScript mirip dengan variabel biasa.
