@@ -290,3 +290,109 @@ countDown(4);
 2
 1
 ```
+### Asynchronous JavaScript
+*Asynchronous* adalah suatu teknik pemrograman berbasis web untuk menciptakan aplikasi web interaktif. Asynchronous terbagi menjadi 3 hal yaitu
+- **Callback**
+Callback adalah sebuah fungsi yang di eksekusi di dalam fungsi lain yang memanggilnya. Fungsi yang di jadikan sebagai parameter pada fungsi lain disebut sebagai fungsi callback. contohnya:
+```javascript
+function myFirst() {
+  myDisplayer("Hello");
+}
+
+function mySecond() {
+  myDisplayer("Goodbye");
+}
+
+myFirst();
+mySecond();
+// Contoh ini akan berakhir dengan menampilkan "hello"
+```
+- **Promises**
+Promise bisa dikatakan sebagai object yang menyimpan hasil dari sebuah operasi asynchronous baik itu hasil yang diinginkan (resolved value) atau alasan kenapa operasi itu gagal (failure reason). contohnya:
+```javascript
+let progress = 100;
+
+const download = new Promise((resolve, reject) => {
+
+  if (progress === 100) {
+
+    resolve('Download complete');
+
+  } else {
+
+    reject('Download failed');
+
+  }
+
+});
+```
+Function setelah keyword new Promise disebut executor. Dan di dalam executor terdapat dua callback function:
+
+    resolve(value) adalah callback function yang dieksekusi jika operasi yang dijalankan oleh executor berhasil(fulfilled)
+    reject(error) adalah callback function yang akan dieksekusi jika operasi gagal (rejected)
+    
+- **Async Await**
+Async Await digunakan untuk menghandle operasi asynchronous dengan syntax yang lebih mirip dengan synchronous.contoh syntax nya:
+```javascript
+async function myFunction() {
+  return "Hello";
+}
+
+// sama juga dengan ini
+function myFunction() {
+  return Promise.resolve("Hello");
+}
+```
+contoh lainnya:
+```javascript
+async function myFunction() {
+  return "Hello";
+}
+myFunction().then(
+  function(value) {myDisplayer(value);},
+  function(error) {myDisplayer(error);}
+);
+```
+
+### Web Storage
+Penyimpanan data  dalam memori untuk situs web. JavaScript dapat menyimpan dan mengakses data tanpa batas di memori web. Data dalam penyimpanan web selalu tersedia bahkan ketika browser ditutup. Selain itu, Penyimpanan Web  memiliki ruang penyimpanan yang besar. Property dan method yang digunakan pada localStorage dan sessionStorage yaitu:
+- key(n) Mendapatkan nama key atau nama data urutan ke-n pada penyimpanan dimulai dari 0.
+- length Mendapatkan jumlah item data yang disimpan pada storage
+- getItem(nama_key) Mendapatkan data dari storage dengan nama yang disebutkan
+- setItem(nama_key, data_disimpan) Menyimpan data ke storage
+- removeItem(nama_key) Menghapus data pada storage dengan nama yang disebutkan
+- clear() Mengosongkan semua data tersimpan pada storage
+
+**Menyimpan data ke storage**
+Seperti yang di jelaskan diatas bahwa jika kita ingin menyimpan data ke storage maka menggunakan property setItem(). conthonya:
+```javascript
+// local storage
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Belajar Javascript</title>
+</head>
+<body>
+<script>
+    localStorage.setItem('Makanan', 'Keju');
+    localStorage.setItem('Minuman','Susu');
+</script>
+</body>
+</html>
+
+// session storage
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Belajar Javascript</title>
+</head>
+<body>
+<script>
+    sessionStorage.setItem('Makanan', 'Keju');
+    sessionStorage.setItem('Minuman','Susu');
+</script>
+</body>
+</html>
+```
