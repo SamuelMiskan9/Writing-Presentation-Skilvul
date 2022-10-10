@@ -202,3 +202,91 @@ const person = {
   }
 };
 ```
+### MULTIDIMENSIONAL ARRAY
+**Multidimensional array**
+Multidimensional array tidak langsung disediakan dalam JavaScript. Jika kita ingin menggunakan sesuatu yang bertindak sebagai array multidimensi maka kita perlu membuat array multidimensi dengan menggunakan array satu dimensi lainnya. Jadi array multidimensi dalam JavaScript dikenal sebagai array di dalam array lain. Kita perlu meletakkan beberapa array di dalam array, maka totalnya berfungsi seperti array multidimensi. Array, di mana array lain akan disisipkan, array tersebut digunakan sebagai array multidimensi dalam kode kita. Untuk mendefinisikan array multidimensi sama persis dengan mendefinisikan array satu dimensi normal.
+
+- **One-Dimensional array**
+```javascript
+var arr = []; // Empty 1D array
+var arr1 = ["A", "B", "C", "D"] // 1D array contains some alphabets
+var arr1 = [1, 2, 3, 4, 5] // 1D array contains some digits
+```
+- **Multidimensional-Dimensional array**
+```javascript
+// Method 1
+1st, need to define some 1D array
+var arr1 = ["ABC", 24, 18000];
+var arr2 = ["EFG", 30, 30000];
+var arr3 = ["IJK", 28, 41000];
+var arr4 = ["EFG", 31, 28000];
+var arr5 = ["EFG", 29, 35000];
+// "salary" di definisikan seperti array 1D tetapi sudah berisi beberapa array 1D
+var salary = [arr1, arr2, arr3, arr4, arr5]; 
+// Berikut arr1, arr2, …arr5 adalah beberapa array 1D yang berada di dalam array salary.
+```
+```javascript
+// Method 2
+var salary = [
+   ["ABC", 24, 18000],
+   ["EFG", 30, 30000],
+   ["IJK", 28, 41000],
+   ["EFG", 31, 28000],
+];
+```
+Berdasarkan langkah langkah diatas salary array bekerja atau berfungsi seperti multidimensional array. Notasi ini dikenal sebagai literal array.
+
+### RECURSIVE FUNCTION
+Rekursi adalah proses pemanggilan dirinya sendiri. Fungsi yang memanggil dirinya sendiri disebut fungsi rekursif. rekursi ini memiliki syntax yaitu:
+```javascript
+// Method 2
+function recurse() {
+    // function code
+    recurse();
+    // function code
+}
+
+recurse();
+```
+Fungsi rekursif harus memiliki kondisi untuk berhenti memanggil dirinya sendiri. Jika tidak, fungsi dipanggil tanpa batas. Setelah kondisi terpenuhi, fungsi berhenti memanggil dirinya sendiri. Ini disebut kondisi dasar.
+
+Untuk mencegah rekursi tak terbatas, Anda dapat menggunakan pernyataan if...else (atau pendekatan serupa) di mana satu cabang membuat panggilan rekursif, dan yang lainnya tidak. Jadi, umumnya terlihat seperti ini.
+```javascript
+function recurse() {
+    if(condition) {
+        recurse();
+    }
+    else {
+        // stop calling recurse()
+    }
+}
+
+recurse();
+```
+
+Contoh sederhana dari fungsi rekursif adalah menghitung mundur nilainya menjadi 1. contoh sederhananya seperti ini PRINT NUMBERS
+```javascript
+// program to count down numbers to 1
+function countDown(number) {
+
+    // display the number
+    console.log(number);
+
+    // decrease the number value
+    const newNumber = number - 1;
+
+    // base case
+    if (newNumber > 0) {
+        countDown(newNumber);
+    }
+}
+
+countDown(4);
+```
+**output**
+```javascript
+4
+3
+2
+1
+```
