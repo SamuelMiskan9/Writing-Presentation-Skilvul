@@ -76,7 +76,7 @@ Dengan array kita bisa mem-build sebuah property maupun method contohnya:
 cars.length   // Returns the number of elements
 cars.sort()   // Sorts the array 
 ```
-**Array length **
+**Array length**
 Kita dapat menghitung banyak array dengan menggunakan fungsi length contohnya:
 ```javascript
 const fruits = ["Banana", "Orange", "Apple", "Mango"];
