@@ -120,7 +120,100 @@ git remote add origin https://github.com/username/nama_repo.git
 ```
 
 ## **Responsive Web Design**
+**Responsive Web** design adalah tampilan website yang bisa menyesuaikan dengan device pengguna. Tampilan dari website akan menyesuaikan sesuai dengan ukuran layar pengguna, bisa jadi tampilan satu device dengan device lainnya akan berbeda. Semuanya aspek dari desain website mulai dari user interface, image, font, video akan menyesuaikan dengan resolusi device pengguna.
 
+- **Mengatur ViewPort** untuk membuat suatu web yang responsive kita harus membutuhkan tag Viewport <meta> di seluruh halaman html kita
+```html
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+ ```
+ - **Menggunakan width Property**
+ Ketika kita menstyling css menggunakan width property dengan value 100%, gambar yang kita pakai akan menjadi responsive dengan skala yang keatas dan kebawah, contohnya
+```html
+ <img src="ur_foto.jpg" style="width:100%;"> 
+ ```
+ - **Menggunakan max-width Property** ketika kita mengatur max-width menjadi 100%, maka gambar yang kita pakai akan menscalling kebawah ketika dibutuhkan, tetapi tidak akan pernah scalling keatas atau lebih besar dari size original nya
+ ```html
+  <img src="ur_foto.jpg" style="max-width:100%;height:auto;"> 
+  ```
+- **Media Query** sangat berguna untuk membuat layout kita responsive dengan menyesuaikan tampilan berdasarkan ukuran layar perangkat.Misalnya, media query berikut ini menguji untuk melihat apakah halaman web saat ini sedang ditampilkan sebagai media layar dan lebar area pandang setidaknya 800 px. CSS untuk pemilih .container hanya akan diterapkan jika kedua hal ini benar.
+```css
+@media screen and (min-width: 800px) {
+  .container {
+    margin: 1em 2em;
+  }
+}
+```
+ Media query dapat digunakan untuk memeriksa :
+     a) Tinggi dan lebar viewport
+     b) Tinggi dan lebar device
+     c) Resolusi 
+     d) Orientasi (landscape atau potrait)
+     
+     Namun, pada umumnya yang sering digunakan adalah melihat lebar dan tinggi device (screen).
+- kita dapat menambahkan beberapa media query di dalam stylesheet, mengubah seluruh tata letak atau bagiannya agar sesuai dengan berbagai ukuran layar.
 
+- **Flexible Grids**
+Situs responsif tidak hanya mengubah tata letaknya di antara titik henti sementara, tetapi juga dibangun di atas grid yang fleksibel. Grids yang fleksibel berarti kita tidak harus menargetkan setiap kemungkinan ukuran perangkat yang ada, dan membangun tata letak piksel yang sempurna untuknya. Pendekatan itu tidak mungkin dilakukan mengingat banyaknya perangkat dengan ukuran berbeda yang ada, dan fakta bahwa setidaknya di desktop, orang tidak selalu memaksimalkan browser window mereka.
+```css
+.col {
+  width: 6.12%; /* 60 / 980 = 0.0612 */
+}
+```
+- #### Ordering dan orientation
+```md
+    `flex-direction` digunakan untuk mengatur letak child item. Ada 4 jenis:
+    1.row untuk membentuk sebuah baris dari kiri ke kanan.
+    2.row-reverse untuk membentuk baris dari kanan ke kiri.
+    3.column untuk membentuk baris dari atas ke bawah.
+    4.column-reverse untuk membentuk baris dari bawah ke atas.
+```
+```md
+    `flex-wrap` digunakan untuk membuat tatal letak item <i>children</i> dalam satu tata letak saja. Ada 3 jenis
+    1.no-wrap artinya tidak menggunakan flex-wrap.
+    2.wrap artinya memiliki beberapa line dari atas ke bawah  jika space dalam 1 line sudah full width.
+    3.wrap-reverse artinya memiliki beberapa line dari bawah ke atas  jika space dalam 1 line sudah full width.
+```
+- **`flex-flow`** merupakan gabungan dari `flex-wrap` dan `flex-direction`
+- **`order`** digunakan untuk memposisikan yang akan diatur berdasarkan urutan order. Apabila semakin kecil, maka akan diposisikan paling awal. Namun, apabila `order` bernilai 0 tidak akan berubah karena merupakan value
+ - #### Alignment:
+```md
+    `justify-content` digunakan untuk mengatur tata letak dan jarak antar item child secara horizontal dan vertikal. Ada 6 jenis:
+    1.flex-start untuk memposisikan item di awal kontainer.
+    2.flex-end untuk memposisikan item di akhir kontainer.
+    3.center untuk memposisikan item di tengah kontainer.
+    4.space-between untuk memposisikan antar ruang di setiap item.
+    5.space-around memiliki jarak sebelum, setelah, dan setelah di tiap item.
+    6.space-evenly memiliki posisi yang sama dengan `space-around` 
+```
+```md
+    `align-self` digunakan untuk mengatur align. Ada 5 jenis:
+    1.flex-start untuk memposisikan item di awal kontainer.
+    2.flex-end untuk memposisikan item di akhir kontainer.
+    3.center untuk memposisikan item di tengah kontainer.
+    4.baseline memiliki kesamaan dengan flex-start .
+    5.stretch untuk memposisikan item dengan full kontainer.
+```
+- **Align Content** `align-content` memiliki kesamaan dengan `justify-content` . Hanya saja yang membedakan pada `align-content` terdapat value
+```md
+    `align-items` digunakan untuk mengatur align dari item child secara vertikal. 
+    Ada 5 jenis:
+    1.flex-start untuk memposisikan item di awal kontainer.
+    2.flex-end untuk memposisikan item di akhir kontainer.
+    3.center untuk memposisikan item di tengah kontainer.
+    4.baseline memiliki kesamaan dengan flex-start
+    5.stretch untuk memposisikan item dengan full kontainer.
+```
+- #### Flexibility:
+- `flex-grow` digunakan untuk mengatur ukuran suatu <i>item child</id> pada flexbox. Nilai harus angka dan tidak boleh minus.
+         
+- `flex-shrink` digunakan untuk membuat ukuran suatu <i>item child</i> mengecil secara relatif terhadap <i>item child</i> lainya. Nilai harus angka          dan tidak boleh minus. Semakin besar nilainya, maka semakin kecil ukuran dari suatu <i>item child</i>.
+         
+- `flex-basis` digunakan untuk menentukan lebar dari <i>item child</i>. Flexbox tidak bisa menggunakan properti `min-width` dan `max-width`. Ada 4 nilai dari `flex basis` :
+```md
+    1.auto akan menyesuaikan dengan kontenya
+    2.angka (bisa menggunakan satuan)
+    3.initial adalah bentuk default
+    4.inherit akan diturunkan dari <i>parent</i>
+```
 
-
+## **BOOTSTRAP 5**
