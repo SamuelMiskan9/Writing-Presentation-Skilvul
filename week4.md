@@ -168,7 +168,7 @@ Situs responsif tidak hanya mengubah tata letaknya di antara titik henti sementa
     4.column-reverse untuk membentuk baris dari bawah ke atas.
 ```
 ```md
-    `flex-wrap` digunakan untuk membuat tatal letak item <i>children</i> dalam satu tata letak saja. Ada 3 jenis
+    `flex-wrap` digunakan untuk membuat tatal letak item children dalam satu tata letak saja. Ada 3 jenis
     1.no-wrap artinya tidak menggunakan flex-wrap.
     2.wrap artinya memiliki beberapa line dari atas ke bawah  jika space dalam 1 line sudah full width.
     3.wrap-reverse artinya memiliki beberapa line dari bawah ke atas  jika space dalam 1 line sudah full width.
@@ -216,7 +216,7 @@ Situs responsif tidak hanya mengubah tata letaknya di antara titik henti sementa
     4.inherit akan diturunkan dari <i>parent</i>
 ```
 
-## **BOOTSTRAP 5**
+## **BOOTSTRAP**
 - **Pengertian**
 Pengertian dari Bootstrap adalah kerangka kerja CSS yang bersifat open source dan digunakan untuk kebutuhan pembuatan tampilan desain visual dari aplikasi web atau situs website. Kerangka kerja yang digunakan berbentuk template desain berbasis HTML dan CSS untuk kebutuhan pengembangan navigasi, tombol, tipografi, formulir, dan komponen antarmuka yang lainnya.
 
