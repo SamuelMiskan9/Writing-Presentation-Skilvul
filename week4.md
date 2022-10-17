@@ -217,3 +217,66 @@ Situs responsif tidak hanya mengubah tata letaknya di antara titik henti sementa
 ```
 
 ## **BOOTSTRAP 5**
+- **Pengertian**
+Pengertian dari Bootstrap adalah kerangka kerja CSS yang bersifat open source dan digunakan untuk kebutuhan pembuatan tampilan desain visual dari aplikasi web atau situs website. Kerangka kerja yang digunakan berbentuk template desain berbasis HTML dan CSS untuk kebutuhan pengembangan navigasi, tombol, tipografi, formulir, dan komponen antarmuka yang lainnya.
+
+- **Cara Menginstall Bootstrap**
+cara menginstall bootstrap dengan cara mengintegrasikannya ke dalam format kode program kerangka HTML dan CSS, yaitu dengan cara manual atau online.
+- **HTML**
+```html
+<script src=”https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js”></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+```
+- **Contoh Bootstrap**
+```html
+ <div class="jumbotron text-center">
+  <h1>My First Bootstrap Page</h1>
+  <p>Resize this responsive page to see the effect!</p>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Column 1</h3>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 2</h3>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 3</h3>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div>
+</div> 
+```
+
+- **Kelebihan dan Kekurangan Bootstrap**
+    - **Kelebihan**
+    ```md
+    1.Bootstrap dilengkapi dengan komponen antarmuka yang lengkap. Seperti bilah navigasi, sistem grid, serta carousel gambar
+    
+    2.Mudah dipelajari, karena memiliki banyak tutorial di forum daring, serta popularitasnya optimal
+    
+    3.Struktur file lebih sederhana
+    
+    4.Mempertahankan konsistensi di seluruh sintaks antara pengembang dan situs web
+    
+    5.Sistem grid telah ditentukan, menyelamatkan dari membuatnya di awal
+    
+    6.Sistem kisinya sudah ada, sehingga tidak perlu memasukkan kueri media ke file CSS
+    ```
+    - **Kekurangan**
+    ```md
+    1.Perlu penyesuaian yang berat untuk membuat satu proyek yang berbeda dari yang lain
+    
+    2.Jika tidak sesuai, semua situs web akan memiliki kerangka, komponen, serta desain yang sama, sehingga tidak terlihat profesional
+    
+    3.File Bootstrap berukuran besar, sehingga bisa memperlambat loading. Hal ini juga berkesempatan membebani server jika tidak hati-hati
+    
+    4.Untuk versi terbaru, Bootstrap memang kompatibel dengan berbagai peramban, akan tetapi tidak berlaku untuk versi yang lebih lama
+    
+    5.Gaya Bootstrap relatif besar, hal ini akan membuat keluaran HTML yang tidak perlu
+    ```
