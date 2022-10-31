@@ -105,7 +105,6 @@ function App() {
 export default App;
 ```
 **OUTPUT**
-    
 ![init](https://raw.githubusercontent.com/SamuelMiskan9/image1/main/vite/4.PNG)
    
 ### **Styling di React**
@@ -276,3 +275,132 @@ setelah kita membuat komponen dari Navbar, kita memanggil komponen kedalam App,j
 ketika sudah selesai memanggil komponennya maka OUTPUT nya akan seperti ini, navbar nya akan muncul:
 
 ![init](https://raw.githubusercontent.com/SamuelMiskan9/image1/main/vite/9.PNG)
+
+### **Penggunaan useState Untuk Button Increment dan Decrement**
+berikut cara membuat tombol increment dan decrement menggunakan eventHandler dengan memasukkan fungsi useState
+- pertama kita membuat komponen baru, seperti biasa. kemudian kita menambahkan fungsi decrement dan increment didalam nya:
+```js
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+
+const Count = () => {
+  useEffect(() => {});
+
+  const [count, setCount] = useState(0);
+  const hitung = () => {
+    setCount(count + 1);
+  };
+  const kurangi = () => {
+    setCount(count - 1);
+  };
+  //   console.log("count", count);
+
+  const [isLoading, setIsLoading] = useState(true);
+  console.log("isLoading", isLoading);
+  return (
+    <div>
+      <h1>Hallow</h1>
+      <button onClick={hitung}>+</button>
+      <span>{count}</span>
+      <button onClick={kurangi}>-</button>
+
+      <button onClick={() => setIsLoading(!isLoading)}>Ubah Loading</button>
+      <span>{isLoading}</span>
+    </div>
+  );
+};
+
+export default Count;
+```
+contoh nya seperti diatas.
+```js
+//Function Increment
+const [count, setCount] = useState(0);
+  const hitung = () => {
+    setCount(count + 1);
+  };
+```
+```js
+//Function Decrement
+const kurangi = () => {
+    setCount(count - 1);
+  };
+```
+```js
+return (
+    <div>
+      <h1>Hallow</h1>
+      <button onClick={hitung}>+</button>
+      <span>{count}</span>
+      <button onClick={kurangi}>-</button>
+
+      <button onClick={() => setIsLoading(!isLoading)}>Ubah Loading</button>
+      <span>{isLoading}</span>
+    </div>
+  );
+};
+```
+berikut adalah eventHandler berupa onclick yang dimana akan work ketika kita menekan tombol + dan -. maka hasilnya akan seperti ini
+
+![init](https://raw.githubusercontent.com/SamuelMiskan9/image1/main/vite/10.PNG)
+
+kemudian ketika kita menekan tomboh +/- nya akan ada console log yang memberi tahu bahwa tombol tersebut bekerja
+
+![init](https://raw.githubusercontent.com/SamuelMiskan9/image1/main/vite/12.PNG)
+
+### Penggunaan useState array of object untuk mengisi suatu data
+untuk itu, kita harus membuatnya dalam bentuk useState ketika ingin menambahkan data contohnya seperti:
+```js
+import React from "react";
+import { useState } from "react";
+
+export const ListUser = () => {
+  const [users, setUsers] = useState([
+    {name: "John", umur: 20},
+    {name: "David", umur: 21},
+    {name: "Josh", umur: 22},
+    {name: "Bayu", umur: 23},
+  ]);
+  return <div>ListUser</div>;
+};
+```
+
+### **Login With ListMember**
+```js
+import { useState } from "react";
+import Card from "./components/Card";
+import Counter from "./components/Counter";
+import ListUser from "./components/ListUser";
+
+function App() {
+  const [isLogin, setIsLogin] = useState(false);
+
+  return (
+    <div>
+      {!isLogin && <button onClick={() => setIsLogin(true)}>Login</button>}
+
+      <br />
+
+      {isLogin ? <Counter /> : <span>login dulu cuuuy...</span>}
+
+      {isLogin && <ListUser />}
+    </div>
+  );
+}
+
+export default App;
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
