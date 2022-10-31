@@ -19,7 +19,6 @@ Berikut merupakan cara untuk menginstall react
  npm create vite@latest learn-react -- --react
  ```
 ![init](https://raw.githubusercontent.com/SamuelMiskan9/image1/main/vite/1.PNG)
-
 ketika kita sudah menjalankan perintah nya akan keluar seperti itu, kemudian kita tinggal masuk kedalam folder yang telah kita buat, dan menjalankannya
 ```js
 cd install-react
@@ -53,7 +52,6 @@ atau
 <> </>
 ```
 Berikut merupakan tampilan function didalam suatu komponen
-    
 ![init](https://raw.githubusercontent.com/SamuelMiskan9/image1/main/3.PNG)
 ```md
 Ketika kita menggunakan suatu function, dianjurkan untuk menulis huruf depan dengan huruf kapital agar fungsi yang kita buat dapat berfungsi dengan baik.
@@ -105,251 +103,139 @@ function App() {
 export default App;
 ```
 **OUTPUT**
-    
 ![init](https://raw.githubusercontent.com/SamuelMiskan9/image1/main/vite/4.PNG)
    
-### Command didalam Github
-- **Membuat Repositori Baru**. Ini digunakan untuk membuat repository baru. Yaitu folder yang akan dipantau oleh git.
+### **Styling di React**
+Untuk styling css di react tidak jauh berbeda dengan HTML dan CSS pada umumnya yang membedakan hanyalah nama class nya saja
 ```md
-git init folder-baru
+untuk HTML dan CSS menggunakan class="" saja
+tetapi untuk react kita harus menulis dengan berbeda yatu className=""
 ```
+Seperti:
 
-- **Melihat status dari git kita** perintah dari git status ini adalah menampilkan status yang terdapat didalam giat kita
-```md
-git status
-```
+![init](https://raw.githubusercontent.com/SamuelMiskan9/image1/main/vite/5.PNG)
 
-- **Membuat atau menambahkan sebuah file kedalam git** kita bisa menggunakan git add, tetapi Dalam git itu ada 3 area dalam proses pengerjaanya mengerjakan.
-- Working area - area yang belum di add
-- Staging area - area yang sudah di add dan siap di commit
-- Repository area - area yang sudah  di commit
-Misalnya kita ingin membuat suatu file baru dalam repository kalian nah file baru tersebut akan masuk ke working area dahulu sebelum kalian melakukan git add
-```md
-git add [nama_file]
-```
-jika ingin memindahkan semua yang ada di working area ke staging area kita bisa memasukan perintah
-```md
-git add .
-```
-- **Git Checkout**
-jika kita ingin membuat sebuah branch baru kita bisa memanggil perintah ini
-```md
-git branch [branch-baru]
-```
-jika kita ingin melepas branch yang sedang kita gunakan lalu membuat sebuah branch baru kita bisa menggunakan perintah yaitu
-```md
-git branch -b [branch-baru]
-```
-- **Git Merge**
-Ini digunakan untuk menggabungkan branch ke branch yang aktif biasa ke branch master perintahnya!
-```md
-git merge [nama branch]
-```
-- **Git Commit**
-digunakan untuk menyimpan perubahan yang sudah dilakukan, namun tidak ada perubahan yang terjadi pada remote repository.
-```md
-git commit -m "Pesan Kamu"
-```
-- **Git Log**
-Untuk menampilkan daftar commit yang sudah dibuat perintahnya!
-```md
-git log
-```
+![init](https://raw.githubusercontent.com/SamuelMiskan9/image1/main/vite/6.PNG)
 
-### Perintah Git Untuk Github
-- **Git Clone** digunakan untuk mengcopy repository orang lain melalui URL
-```md
-git clone [url repository
-```
-- **Git Push** Biasa digunakan untuk mengupdate project yang ada di github dari git. Untuk melakukan push bisa diawali dengan mengclone terlebih dahulu lalu jika project kita yang sudah diubah dan kita bisa mengubahnya juga di github dengan printah!
-```md
-git push
-```
-- untuk push remote dari local ke server
-```md
-git push origin master
-```
-- **Git Pull** untuk mengupdate project kita yang ada di local yang sudah di clone dan ternyata project di github diupdate oleh kita di beda perangkat misalnya lalu kita ingin mengupdate suatu project yang ada di local lewat github tanpa melakukan clone
-```md
-git pull
-```
-- **Git Remote** Fungsinya untuk menghubungkan repository yang ada di local ke github kita. Jadi kita tidak perlu clone dahulu repo yang ada di github. Kelebihan remote itu Nama Repository yang dibuat git dilocal dan nama repository di github bisa beda. 
-```md
-git remote add origin https://github.com/username/nama_repo.git
-```
-
-### Langkah Langkah Untuk Melakukan Colaborasi Git
-```md
-    1.Salah satu buat github organisasi (auto leader)
-    2.leader buat repository
-    3.leader jadi first person yang bakal push lokal ke repository.
-    4.leader invite siapa aja yang ada di repository tersebut
-    5.anggota melakukan clone
-    6. lakukan push dengan branch yang sesuai dengan fitur apa yang dibuat seperti 
-    : Samuel-login
-    7.leader buat pull request untuk penggabungan dari "hafi-login ke dev" dulu
-    8.leader checking & merge
-    9."git pull" sama kayak ngeclone, tapi tanpa link
-```
-
-## **Responsive Web Design**
-**Responsive Web** design adalah tampilan website yang bisa menyesuaikan dengan device pengguna. Tampilan dari website akan menyesuaikan sesuai dengan ukuran layar pengguna, bisa jadi tampilan satu device dengan device lainnya akan berbeda. Semuanya aspek dari desain website mulai dari user interface, image, font, video akan menyesuaikan dengan resolusi device pengguna.
-
-- **Mengatur ViewPort** untuk membuat suatu web yang responsive kita harus membutuhkan tag Viewport <meta> di seluruh halaman html kita
-```html
- <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
- ```
- - **Menggunakan width Property**
- Ketika kita menstyling css menggunakan width property dengan value 100%, gambar yang kita pakai akan menjadi responsive dengan skala yang keatas dan kebawah, contohnya
-```html
- <img src="ur_foto.jpg" style="width:100%;"> 
- ```
- - **Menggunakan max-width Property** ketika kita mengatur max-width menjadi 100%, maka gambar yang kita pakai akan menscalling kebawah ketika dibutuhkan, tetapi tidak akan pernah scalling keatas atau lebih besar dari size original nya
- ```html
-  <img src="ur_foto.jpg" style="max-width:100%;height:auto;"> 
-  ```
-- **Media Query** sangat berguna untuk membuat layout kita responsive dengan menyesuaikan tampilan berdasarkan ukuran layar perangkat.Misalnya, media query berikut ini menguji untuk melihat apakah halaman web saat ini sedang ditampilkan sebagai media layar dan lebar area pandang setidaknya 800 px. CSS untuk pemilih .container hanya akan diterapkan jika kedua hal ini benar.
+untuk melakukan styling seperti diatas kita yaitu seperti ini:
 ```css
-@media screen and (min-width: 800px) {
-  .container {
-    margin: 1em 2em;
-  }
+.image-pfp {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.profile-info {
+  margin-left: 20px;
+}
+
+.profile-container {
+  margin-left: 100px;
+  display: flex;
+  margin-top: 20px;
 }
 ```
- Media query dapat digunakan untuk memeriksa :
-     a) Tinggi dan lebar viewport
-     b) Tinggi dan lebar device
-     c) Resolusi 
-     d) Orientasi (landscape atau potrait)
-     
-     Namun, pada umumnya yang sering digunakan adalah melihat lebar dan tinggi device (screen).
-- kita dapat menambahkan beberapa media query di dalam stylesheet, mengubah seluruh tata letak atau bagiannya agar sesuai dengan berbagai ukuran layar.
+```md
+catatan untuk pemanggilan CSS hanya dilakukan didalam file App.jsx saja
+```
 
-- **Flexible Grids**
-Situs responsif tidak hanya mengubah tata letaknya di antara titik henti sementara, tetapi juga dibangun di atas grid yang fleksibel. Grids yang fleksibel berarti kita tidak harus menargetkan setiap kemungkinan ukuran perangkat yang ada, dan membangun tata letak piksel yang sempurna untuknya. Pendekatan itu tidak mungkin dilakukan mengingat banyaknya perangkat dengan ukuran berbeda yang ada, dan fakta bahwa setidaknya di desktop, orang tidak selalu memaksimalkan browser window mereka.
-```css
-.col {
-  width: 6.12%; /* 60 / 980 = 0.0612 */
+
+### **Prop and State**
+**Props** adalah properti yang berbentuk parameter dari suatu function, cara kerja props adalah mengirimkan data properti dari child ke parent contonya kita membuat file child seperti:
+```js
+//Component Child
+import React from "react";
+
+const Header = ({ name, age, info, imgUrl }) => {
+  return (
+    <div>
+      <div className="profile-container">
+        <img src={imgUrl} alt="" className="image-pfp" />
+        <div className="profile-info">
+          <h2>My name is {name}</h2>
+          <h3>I am {age} years old</h3>
+          <p>{info}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+export default Header;
+```
+```js
+//Component Parent
+import { useState } from "react";
+import "./App.css";
+import Header from "./components/Header";
+
+function App() {
+  return (
+    <div>
+      <Header
+        name={"Miskan"}
+        age={"20"}
+        info={"Halo batam"}
+        imgUrl={
+          "https://i.pinimg.com/236x/85/9a/f7/859af748d1eed0d67d5801a6df188a89.jpg"
+        }
+      />
+      <Header
+        name={"Arifian"}
+        age={"20"}
+        info={"Halo Pinang"}
+        imgUrl={
+          "https://divedigital.id/wp-content/uploads/2022/07/Anya-Forger-PFP-PROFILE-PICTURE.jpg"
+        }
+      />
+    </div>
+  );
 }
+export default App;
 ```
-- #### Ordering dan orientation
-```md
-    `flex-direction` digunakan untuk mengatur letak child item. Ada 4 jenis:
-    1.row untuk membentuk sebuah baris dari kiri ke kanan.
-    2.row-reverse untuk membentuk baris dari kanan ke kiri.
-    3.column untuk membentuk baris dari atas ke bawah.
-    4.column-reverse untuk membentuk baris dari bawah ke atas.
+```js
+const Header = ({ name, age, info, imgUrl })
 ```
-```md
-    `flex-wrap` digunakan untuk membuat tatal letak item <i>children</i> dalam satu tata letak saja. Ada 3 jenis
-    1.no-wrap artinya tidak menggunakan flex-wrap.
-    2.wrap artinya memiliki beberapa line dari atas ke bawah  jika space dalam 1 line sudah full width.
-    3.wrap-reverse artinya memiliki beberapa line dari bawah ke atas  jika space dalam 1 line sudah full width.
-```
-- **`flex-flow`** merupakan gabungan dari `flex-wrap` dan `flex-direction`
-- **`order`** digunakan untuk memposisikan yang akan diatur berdasarkan urutan order. Apabila semakin kecil, maka akan diposisikan paling awal. Namun, apabila `order` bernilai 0 tidak akan berubah karena merupakan value
- - #### Alignment:
-```md
-    `justify-content` digunakan untuk mengatur tata letak dan jarak antar item child secara horizontal dan vertikal. Ada 6 jenis:
-    1.flex-start untuk memposisikan item di awal kontainer.
-    2.flex-end untuk memposisikan item di akhir kontainer.
-    3.center untuk memposisikan item di tengah kontainer.
-    4.space-between untuk memposisikan antar ruang di setiap item.
-    5.space-around memiliki jarak sebelum, setelah, dan setelah di tiap item.
-    6.space-evenly memiliki posisi yang sama dengan `space-around` 
-```
-```md
-    `align-self` digunakan untuk mengatur align. Ada 5 jenis:
-    1.flex-start untuk memposisikan item di awal kontainer.
-    2.flex-end untuk memposisikan item di akhir kontainer.
-    3.center untuk memposisikan item di tengah kontainer.
-    4.baseline memiliki kesamaan dengan flex-start .
-    5.stretch untuk memposisikan item dengan full kontainer.
-```
-- **Align Content** `align-content` memiliki kesamaan dengan `justify-content` . Hanya saja yang membedakan pada `align-content` terdapat value
-```md
-    `align-items` digunakan untuk mengatur align dari item child secara vertikal. 
-    Ada 5 jenis:
-    1.flex-start untuk memposisikan item di awal kontainer.
-    2.flex-end untuk memposisikan item di akhir kontainer.
-    3.center untuk memposisikan item di tengah kontainer.
-    4.baseline memiliki kesamaan dengan flex-start
-    5.stretch untuk memposisikan item dengan full kontainer.
-```
-- #### Flexibility:
-- `flex-grow` digunakan untuk mengatur ukuran suatu <i>item child</id> pada flexbox. Nilai harus angka dan tidak boleh minus.
-         
-- `flex-shrink` digunakan untuk membuat ukuran suatu <i>item child</i> mengecil secara relatif terhadap <i>item child</i> lainya. Nilai harus angka          dan tidak boleh minus. Semakin besar nilainya, maka semakin kecil ukuran dari suatu <i>item child</i>.
-         
-- `flex-basis` digunakan untuk menentukan lebar dari <i>item child</i>. Flexbox tidak bisa menggunakan properti `min-width` dan `max-width`. Ada 4 nilai dari `flex basis` :
-```md
-    1.auto akan menyesuaikan dengan kontenya
-    2.angka (bisa menggunakan satuan)
-    3.initial adalah bentuk default
-    4.inherit akan diturunkan dari <i>parent</i>
-```
-
-## **BOOTSTRAP**
-- **Pengertian**
-Pengertian dari Bootstrap adalah kerangka kerja CSS yang bersifat open source dan digunakan untuk kebutuhan pembuatan tampilan desain visual dari aplikasi web atau situs website. Kerangka kerja yang digunakan berbentuk template desain berbasis HTML dan CSS untuk kebutuhan pengembangan navigasi, tombol, tipografi, formulir, dan komponen antarmuka yang lainnya.
-
-- **Cara Menginstall Bootstrap**
-cara menginstall bootstrap dengan cara mengintegrasikannya ke dalam format kode program kerangka HTML dan CSS, yaitu dengan cara manual atau online.
-- **HTML**
-```html
-<script src=”https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js”></script>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-```
-- **Contoh Bootstrap**
-```html
- <div class="jumbotron text-center">
-  <h1>My First Bootstrap Page</h1>
-  <p>Resize this responsive page to see the effect!</p>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <h3>Column 1</h3>
-      <p>Lorem ipsum dolor..</p>
+berikut merupakan props yang berbentuk parameter yang berisikan nama age info dan img url yang nantinya akan dipanggil oleh komponen parent, contohnya seperti:
+```js
+return (
+    <div>
+      <div className="profile-container">
+        <img src={imgUrl} alt="" className="image-pfp" />
+        <div className="profile-info">
+          <h2>My name is {name}</h2>
+          <h3>I am {age} years old</h3>
+          <p>{info}</p>
+        </div>
+      </div>
     </div>
-    <div class="col-sm-4">
-      <h3>Column 2</h3>
-      <p>Lorem ipsum dolor..</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 3</h3>
-      <p>Lorem ipsum dolor..</p>
-    </div>
-  </div>
-</div> 
+  );
+```
+kalau kita lihat diatas pada tag h2, itu merupakan pemanggilan props dari komponent child, yang berisikan data properti yang telah kita buat tadi, ketika sudah dipanggil props nya maka akan muncul output seperti ini:
+
+![init](https://raw.githubusercontent.com/SamuelMiskan9/image1/main/vite/6.PNG)
+
+properti diatas merupakan hasil dari pengguaan props
+
+**State**
+```md
+sedangkan State adalah data yang tersimpan dalam sebuah component. State bersifat private dan hanya relevan terhadap component itu sendiri. Berbeda dengan props yang valuenya dilempar dari component lain, state justru dapat menyimpan dan mengubah datanya sendiri dari dalam.
 ```
 
-- **Kelebihan dan Kekurangan Bootstrap**
-    - **Kelebihan**
-    ```md
-    1.Bootstrap dilengkapi dengan komponen antarmuka yang lengkap. Seperti bilah navigasi, sistem grid, serta carousel gambar
-    
-    2.Mudah dipelajari, karena memiliki banyak tutorial di forum daring, serta popularitasnya optimal
-    
-    3.Struktur file lebih sederhana
-    
-    4.Mempertahankan konsistensi di seluruh sintaks antara pengembang dan situs web
-    
-    5.Sistem grid telah ditentukan, menyelamatkan dari membuatnya di awal
-    
-    6.Sistem kisinya sudah ada, sehingga tidak perlu memasukkan kueri media ke file CSS
-    ```
-    - **Kekurangan**
-    ```md
-    1.Perlu penyesuaian yang berat untuk membuat satu proyek yang berbeda dari yang lain
-    
-    2.Jika tidak sesuai, semua situs web akan memiliki kerangka, komponen, serta desain yang sama, sehingga tidak terlihat profesional
-    
-    3.File Bootstrap berukuran besar, sehingga bisa memperlambat loading. Hal ini juga berkesempatan membebani server jika tidak hati-hati
-    
-    4.Untuk versi terbaru, Bootstrap memang kompatibel dengan berbagai peramban, akan tetapi tidak berlaku untuk versi yang lebih lama
-    
-    5.Gaya Bootstrap relatif besar, hal ini akan membuat keluaran HTML yang tidak perlu
-    ```
+untuk pengguaan useState seperti ini
+```js
+import { useState } from "react";
+
+const [nama, getName] = useState("Munir");
+const [umur, getAge] = useState(20);
+```
+
+## Perbedaan Statefull  dan Stateless
+```md
+Statefull:
+Stateful components adalah komponen yang menggunakan state. 
+
+Stateless:
+Sedangkan Stateless adalah komponen yang tidak menggunakan state.
+```
