@@ -392,15 +392,59 @@ function App() {
 export default App;
 ```
 
+### React Hooks
+Hooks merupakan fungsi yang memungkinkan Anda untuk “mengaitkan” state dan fitur-fitur lifecycle React dari function component. intinya hooks mempermudah penggunaan functional components, agar bisa menggunakan state dan lifecyle lainnya
 
+Hooks yang sering digunakan adalah
+- UseState
+- useEffect
 
+### **useEffect**
+React hooks useEffect digunakan untuk menambahkan side effect ke function komponen. Penggunaan useEffect mirip dengan lifecycle method seperti componentDidMount, componentDidUpdate, dan componentWillMount di class component.
+```js
+import { useState, useEffect } from "react";
+import ReactDOM from "react-dom/client";
 
+function Timer() {
+  const [count, setCount] = useState(0);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setCount((count) => count + 1);
+    }, 1000);
+  });
 
+  return <h1>I've rendered {count} times!</h1>;
+}
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Timer />);
+```
 
+### LifeCycle
+React Lifecycle terbagi kedalam 3 komponen yaitu
+- Mounting
+Fase dimana component dibuat dan mulai ditambahkan ke DOM.
+- Updating
+Fase dimana component di-render ulang karena perubahan props dan state.
+- Unmounting
+Fase dimana sebuah component dihapus dari DOM.
 
+### Struktur Lifecycle
+![init](https://raw.githubusercontent.com/SamuelMiskan9/image1/main/vite/13.PNG)
 
-
-
-
+contoh simple nya seperti ini:
+```js
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {favoritecolor: "red"};
+  }
+  render() {
+    return (
+      <h1>My Favorite Color is {this.state.favoritecolor}</h1>
+    );
+  }
+}
+ReactDOM.render(<Header />, document.getElementById('root'));
+```
