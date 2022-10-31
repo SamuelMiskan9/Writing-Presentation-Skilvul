@@ -19,6 +19,7 @@ Berikut merupakan cara untuk menginstall react
  npm create vite@latest learn-react -- --react
  ```
 ![init](https://raw.githubusercontent.com/SamuelMiskan9/image1/main/vite/1.PNG)
+
 ketika kita sudah menjalankan perintah nya akan keluar seperti itu, kemudian kita tinggal masuk kedalam folder yang telah kita buat, dan menjalankannya
 ```js
 cd install-react
@@ -52,6 +53,7 @@ atau
 <> </>
 ```
 Berikut merupakan tampilan function didalam suatu komponen
+    
 ![init](https://raw.githubusercontent.com/SamuelMiskan9/image1/main/3.PNG)
 ```md
 Ketika kita menggunakan suatu function, dianjurkan untuk menulis huruf depan dengan huruf kapital agar fungsi yang kita buat dapat berfungsi dengan baik.
@@ -103,6 +105,7 @@ function App() {
 export default App;
 ```
 **OUTPUT**
+    
 ![init](https://raw.githubusercontent.com/SamuelMiskan9/image1/main/vite/4.PNG)
    
 ### Command didalam Github
