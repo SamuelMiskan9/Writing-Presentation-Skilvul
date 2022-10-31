@@ -112,7 +112,7 @@ export default App;
 Untuk styling css di react tidak jauh berbeda dengan HTML dan CSS pada umumnya yang membedakan hanyalah nama class nya saja
 ```md
 untuk HTML dan CSS menggunakan class="" saja
-tetapi untuk react kita harus menulis dengan berbeda yatu className=""
+tetapi untuk react kita harus menulis dengan berbeda yaitu className=""
 ```
 Seperti:
 
