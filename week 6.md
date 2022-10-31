@@ -241,3 +241,37 @@ Stateful components adalah komponen yang menggunakan state.
 Stateless:
 Sedangkan Stateless adalah komponen yang tidak menggunakan state.
 ```
+## **React Bootstrap**
+Untuk menggunakan bootstrap didalam react, pertama yang harus kita lakukan adalah menginstall package bootstrap itu terlebih dahulu seperti:
+```md
+npm i bootstrap
+```
+lakukan penginstalan hingga selesai, setelah siap menginstal, kita membuat komponen baru dengan nama Navbar. perlu diingat jangan lupa untuk copy CDN dari bootstrap ke HTML di react agar bootstrap dapat digunakan.
+
+setelah selesai kita membuat komponen baru dengan nama Navbar dan lakukan export import untuk memanggil navbarnya di dalam App.jsx
+```js
+import React from "react";
+
+const Navbar = () => {
+  return <div>
+    <nav class="navbar bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Navbar</a>
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+  </div>;
+};
+
+export default Navbar;
+```
+setelah kita membuat komponen dari Navbar, kita memanggil komponen kedalam App,jsx nya
+
+![init](https://raw.githubusercontent.com/SamuelMiskan9/image1/main/vite/7.PNG)
+
+ketika sudah selesai memanggil komponennya maka OUTPUT nya akan seperti ini, navbar nya akan muncul:
+
+![init](https://raw.githubusercontent.com/SamuelMiskan9/image1/main/vite/9.PNG)
