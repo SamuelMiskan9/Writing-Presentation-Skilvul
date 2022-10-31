@@ -105,6 +105,7 @@ function App() {
 export default App;
 ```
 **OUTPUT**
+    
 ![init](https://raw.githubusercontent.com/SamuelMiskan9/image1/main/vite/4.PNG)
    
 ### **Styling di React**
