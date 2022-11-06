@@ -93,6 +93,110 @@ cek nilai dan key
 
 jika tipe data yang kita berikan tidak sesuai dengan ketentuan props-types, maka akan timbul error seperti gambar diatas. terdapat error di console log yang berisi pesan, bahwa data yang kita input didalam Age tidaak sesuai, harus berbentuk number atau string. karena pada kasus ini saya memakai ketentuan dari props types yaitu oneOfTypes.
 
+## **React Router**
+Routing adalah proses di mana pengguna diarahkan ke halaman yang berbeda berdasarkan tindakan atau permintaan mereka. sedangkan React Router adalah suatu sistem library standar yang dibangun di atas React dan digunakan untuk membuat perutean di aplikasi React menggunakan Paket React Router. Ini menyediakan URL sinkron di browser dengan data yang akan ditampilkan di halaman web. Ini memelihara struktur standar dan perilaku aplikasi dan terutama digunakan untuk mengembangkan aplikasi web satu halaman.
 
+**How To Install React Router**
+```md
+npm install react-router-dom@6
+```
 
+setelah diinstal kemudian kita import kedalam file main.jsx
+```js
+import { BrowserRouter as Router } from "react-router-dom";
+```
 
+```js
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./index.css";
+import { BrowserRouter as Router } from "react-router-dom";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <Router>
+      <App />
+    </Router>
+  </React.StrictMode>
+);
+```
+kemudian setelah kita import kedalam file main.jsx kita, jangan lupa untuk membungkus <App /> dengan router atau BrowserRouter, agar ketika kita jalankan tidak terjadi error.
+
+**Simple Routing***
+```js
+import "./App.css";
+import { Link, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import { About } from "./pages/About";
+import Navbar from "./pages/Navbar";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
+import AOS from "aos";
+
+AOS.init();
+
+function App() {
+  return (
+    <>
+      <Navbar />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Projects" element={<Projects />} />
+        <Route path="/Contact" element={<Contact />} />
+      </Routes>
+    </>
+  );
+}
+export default App;
+```
+berikut diatas merupakan contoh untuk routing dasar, dimaana kita menggunakan route kemudian dengan path sebagai alamat component yang ingin kita tuju. pada dasarnya sama saja dengan menggunakan a href.
+
+**Dynamic Route**
+```js
+<BrowserRouter>
+  /* Links */
+  {heroes.map(hero => (<Link to={'heroes/' + hero.id} />)}
+
+  /* Component */
+  <Route path="heroes/:id" component={Hero} />
+</BrowserRouter>
+
+class Hero extends Component {
+  render() {
+    return (
+      <div>
+        {this.props.match.params.id}
+      </div>
+    );
+  }
+}
+```
+cara menggunakan Dynamic Route sebagi berikut
+- Gunakan Tautan untuk membuat daftar rute secara dinamis.
+- Gunakan titik dua (:) untuk mengindikasikan parameter dari url di dalam kondisi tertentu
+- Gunakan objek serupa yang diteruskan sebagai props ke komponen route yang dirender untuk mengakses params url **this.props.match.params.id** .
+
+**Nested Route**
+```js
+export default function App() {
+    return (
+        <Router>
+            <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='about' element={<About />} />
+                <Route path='posts' element={<Posts />}>
+                    <Route path='new' element={<NewPost />} /> {/*A nested route!*/}
+                    <Route path=':postId' element={<Post />} /> {/*A nested route!*/}
+                </Route>
+            </Routes>
+        </Router>
+    )
+}
+```
+di antara  route komponen kita dapat menyematkan Route lain seperti
+```md
+<Route>{/* Children routes go here*/}</Route>
+```
+Nested route ini dapat menyampaikan informasi satu sama lain dan memastikan mereka ditampilkan dengan Nested  yang tepat.
