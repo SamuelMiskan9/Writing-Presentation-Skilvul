@@ -288,7 +288,7 @@ Thunk merupakan Middleware untuk redux, thunk akan mengizinkan untuk menulis seb
 **How To Install**
 install dengan toolkit
 ```js
-mport { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
 
 import todosReducer from './features/todos/todosSlice'
 import filtersReducer from './features/filters/filtersSlice'
