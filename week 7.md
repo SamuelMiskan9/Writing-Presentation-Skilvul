@@ -200,3 +200,164 @@ di antara  route komponen kita dapat menyematkan Route lain seperti
 <Route>{/* Children routes go here*/}</Route>
 ```
 Nested route ini dapat menyampaikan informasi satu sama lain dan memastikan mereka ditampilkan dengan Nested  yang tepat.
+
+## **State Management**
+**Redux**
+Redux adalah pustaka JavaScript sumber terbuka untuk mengelola dan memusatkan status aplikasi. redux juga merupakan salah satu state management
+
+**How To Install Redux**
+```md
+npm install redux react-redux
+```
+kita harus membuat sebuah folder baru di dalam src dan memberi nama redux pada file itu
+kemudian kita membuat file dengan nama store js dengan code seperti ini
+```js
+import { createStore } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import rootReducer from "./reducers"; const store = createStore(
+rootReducer,
+composeWithDevTools()
+)
+export default store;
+```
+Setelah itu kita akan membuat reducer untuk todo listnya di src/store/reducers/todoReducer.js.
+```js
+const initialState = {
+  todos: [
+    {
+      id: 1,
+      title: "title one",
+      completed: false
+    },
+    {
+      id: 1,
+      title: "title one",
+      completed: false
+    }
+  ]
+}const todoReducer = (state = initialState, action) => {
+  const { type, payload} = action;
+  switch(type){
+    default:
+      return {
+        ...state
+      }
+  }
+}export default todoReducer;
+```
+Gabungkan reducer — reducer di dalam file src/store/reducers/index.js dan sekarang kita hanya memiliki satu reducer yaitu todoReducer.
+```js
+import { combineReducers} from "redux";
+import todoReducer from "./todoReducer";export default combineReducers({
+  todoReducer
+})
+```
+
+file app.jsx
+```js
+import React from "react";
+import { Provider} from "react-redux";
+import store from "./store"const App= () => {
+  return(
+    <Provider store={store}>
+      <div>
+        <TodoApp/>
+      </div>
+    </Provider>
+  )
+}export default App;
+```
+karena kita sudah terhuhung dengan store yang telah kita buat, maka Kita sudah bisa mengambil data dari store dan menampilkannya di UI. Di komponent TodoApp.js kita akan mengambil state dari store. Untuk itu kita membutuhkan function connect dari react-redux untuk menghubungkan komponent dan store.
+
+Setelah itu buat sebuah fungsi untuk mengambil state dari store.
+
+
+redux terdapat beberapa struktur yaitu
+- **Store**
+Seluruh status aplikasi terdaftar di tempat bernama Store. Ini bertindak sebagai otak dan mengelola status aplikasi. Ini juga memiliki fungsi pengiriman (Action).
+
+- **Action**
+objek murni yang dikirim atau dikirim dari tampilan. Ini dibuat untuk menyimpan informasi tentang acara pengguna seperti info tentang jenis tindakan, waktu terjadinya, lokasi kejadian, info tentang koordinatnya, dan info tentang keadaan yang ingin diubah.
+
+- **Reducer**
+Reducer adalah fungsi murni yang digunakan untuk mengembalikan keadaan baru dari keadaan awal. Ia membaca muatan dari tindakan. Peredam kemudian memperbarui toko melalui status yang sesuai.
+
+**Redux Thunk**
+Thunk merupakan Middleware untuk redux, thunk akan mengizinkan untuk menulis sebuah fungsi dengan logika didalamnya yang dimana bisa berinteraksi dengan Redux store dispatch dan getState methods.
+
+**How To Install**
+install dengan toolkit
+```js
+mport { configureStore } from '@reduxjs/toolkit'
+
+import todosReducer from './features/todos/todosSlice'
+import filtersReducer from './features/filters/filtersSlice'
+
+const store = configureStore({
+  reducer: {
+    todos: todosReducer,
+    filters: filtersReducer
+  }
+})
+```
+dengan cara diatas otomatis redux thunk sudah ter install
+**Cara Manual**
+```js
+npm install redux-thunk
+//atau
+yarn add redux-thunk
+```
+
+Untuk Redux Toolkit, callback getDefaultMiddleware di dalam configureStore memungkinkan kita untuk meneruskan argumen ekstra khusus:
+```js
+import { configureStore } from '@reduxjs/toolkit'
+import rootReducer from './reducer'
+import { myCustomApiService } from './api'
+
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      thunk: {
+        extraArgument: myCustomApiService
+      }
+    })
+})
+
+// later
+function fetchUser(id) {
+  // The `extraArgument` is the third arg for thunk functions
+  return (dispatch, getState, api) => {
+    // kita bisa menggunakan api disini
+  }
+}
+```
+
+ketika kita ingin memberi multiple values kita bisa menggabungkannya untuk membuatnya menjadi single objek
+```js
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      thunk: {
+        extraArgument: {
+          api: myCustomApiService,
+          otherValue: 42
+        }
+      }
+    })
+})
+
+function fetchUser(id) {
+  return (dispatch, getState, { api, otherValue }) => {
+
+  }
+}
+```
+ketika kita  menyiapkan Store secara manual, ekspor thunk default memiliki fungsi thunk.withExtraArgument() terlampir yang harus digunakan untuk menghasilkan middleware thunk yang benar:
+```js
+const store = createStore(
+  reducer,
+  applyMiddleware(thunk.withExtraArgument(api))
+)
+```
