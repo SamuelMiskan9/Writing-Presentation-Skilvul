@@ -93,7 +93,105 @@ export default class PrevDisplay extends React.PureComponent {
 ```
 
 ## **React Testing**
-adalah seperangkat helpers yang memungkinkan Anda mengetes komponen pada React tanpa bergantung pada detail implementasinya. Pendekatan ini membuat refactoring menjadi mudah dan juga mendorong Anda untuk menerapkan best practices untuk aksesbilitas. Mungkin tidak memberikan cara untuk me-render secara “dangkal” pada sebuah komponen tanpa anak, test runner seperti Jest yang memungkinkan Anda melakukan mocking.
+adalah seperangkat helpers yang memungkinkan Anda mengetes komponen pada React tanpa bergantung pada detail implementasinya. Pendekatan ini membuat refactoring menjadi mudah dan juga mendorong Anda untuk menerapkan best practices untuk aksesbilitas. Mungkin tidak memberikan cara untuk me-render secara “dangkal” pada sebuah komponen tanpa anak, test runner seperti Jest yang memungkinkan Anda melakukan mocking. contohnya
+```js
+import React from 'react'
+import {rest} from 'msw'
+import {setupServer} from 'msw/node'
+import {render, fireEvent, waitFor, screen} from '@testing-library/react'
+import '@testing-library/jest-dom'
+import Fetch from '../fetch'
+
+const server = setupServer(
+  rest.get('/greeting', (req, res, ctx) => {
+    return res(ctx.json({greeting: 'hello there'}))
+  }),
+)
+
+beforeAll(() => server.listen())
+afterEach(() => server.resetHandlers())
+afterAll(() => server.close())
+
+test('loads and displays greeting', async () => {
+  render(<Fetch url="/greeting" />)
+
+  fireEvent.click(screen.getByText('Load Greeting'))
+
+  await waitFor(() => screen.getByRole('heading'))
+
+  expect(screen.getByRole('heading')).toHaveTextContent('hello there')
+  expect(screen.getByRole('button')).toBeDisabled()
+})
+
+test('handles server error', async () => {
+  server.use(
+    rest.get('/greeting', (req, res, ctx) => {
+      return res(ctx.status(500))
+    }),
+  )
+
+  render(<Fetch url="/greeting" />)
+
+  fireEvent.click(screen.getByText('Load Greeting'))
+
+  await waitFor(() => screen.getByRole('alert'))
+
+  expect(screen.getByRole('alert')).toHaveTextContent('Oops, failed to fetch!')
+  expect(screen.getByRole('button')).not.toBeDisabled()
+})
+```
+
+**Import**
+```js
+// import dependencies
+import React from 'react'
+
+// import API mocking utilities from Mock Service Worker
+import {rest} from 'msw'
+import {setupServer} from 'msw/node'
+
+// import react-testing methods
+import {render, fireEvent, waitFor, screen} from '@testing-library/react'
+
+// add custom jest matchers from jest-dom
+import '@testing-library/jest-dom'
+// the component to test
+import Fetch from '../fetch'
+```
+
+**Implementasi Dengan mockAPI**
+```js
+// declare which API requests to mock
+const server = setupServer(
+  // capture "GET /greeting" requests
+  rest.get('/greeting', (req, res, ctx) => {
+    // respond using a mocked JSON body
+    return res(ctx.json({greeting: 'hello there'}))
+  }),
+)
+
+// establish API mocking before all tests
+beforeAll(() => server.listen())
+// reset any request handlers that are declared as a part of our tests
+// (i.e. for testing one-time error scenarios)
+afterEach(() => server.resetHandlers())
+// clean up once the tests are done
+afterAll(() => server.close())
+
+// ...
+
+test('handles server error', async () => {
+  server.use(
+    // override the initial "GET /greeting" request handler
+    // to return a 500 Server Error
+    rest.get('/greeting', (req, res, ctx) => {
+      return res(ctx.status(500))
+    }),
+  )
+
+  // ...
+})
+```
 
 
 
